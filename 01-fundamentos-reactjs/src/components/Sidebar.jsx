@@ -10,7 +10,7 @@ export function Sidebar() {
 				src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=50" alt="" />
 
 			<div className={styles.profile}>
-				<img className={styles.avatar} src="https://github.com/adhmattheus.png" />
+				<img className={styles.avatar} src="https://avatars.githubusercontent.com/u/30497608?v=4" />
 				<strong>Mattheus Adhonnay</strong>
 				<span>Web Developer</span>
 			</div>

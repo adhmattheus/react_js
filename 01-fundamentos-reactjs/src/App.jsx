@@ -1,8 +1,9 @@
-import { Post } from './Post';
-import { Header } from './components/Header';
-import './global.css';
-import styles from './App.module.css';
+
 import { Sidebar } from './components/Sidebar';
+import { Header } from './components/Header';
+import styles from './App.module.css';
+import './global.css';
+import { Post } from './components/Post';
 
 export default function App() {
   return (
@@ -10,15 +11,10 @@ export default function App() {
       <Header />
 
       <div className={styles.wrapper}>
-        <Sidebar />        <main>
-          <Post
-            author="Mattheus Adhonnay"
-            content="Vitória do Palmeiras no Equador espanta risco de susto na Libertadores"
-          />
-          <Post
-            author="Lafera Cothito"
-            content="Título do Ceará sobre o Sport nos pênaltis reforça 'maldição' dos mandantes"
-          />
+        <Sidebar />
+
+        <main>
+          <Post />
         </main>
       </div>
     </div>
