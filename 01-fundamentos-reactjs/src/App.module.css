@@ -1,0 +1,20 @@
+.wrapper {
+	max-width: 70rem;
+	margin: 2rem auto;
+	padding: 0 1rem;
+
+	display: grid;
+	grid-template-columns: 256px 1fr;
+	gap: 2rem;
+	align-items: flex-start;
+
+	border: 1px solid rgba(255, 255, 0, 0.432);
+}
+
+main {
+	border: 1px solid rgba(252, 137, 137, 0.795);
+}
+
+aside {
+	border: 1px solid rgba(160, 255, 160, 0.384);
+}
