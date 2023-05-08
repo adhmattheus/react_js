@@ -8,7 +8,7 @@ import { useState } from 'react';
 export function Post({ author, publishedAt, content }) {
 
 	const [comments, setComments] = useState([
-		'Post muito bom!'
+		'Que post excelente!'
 	]);
 
 	const [newCommentText, setNewCommentText] = useState('');
@@ -22,6 +22,7 @@ export function Post({ author, publishedAt, content }) {
 		addSuffix: true,
 	});
 
+
 	function handleCrateNewComment(e) {
 		e.preventDefault()
 
@@ -31,7 +32,14 @@ export function Post({ author, publishedAt, content }) {
 	};
 
 	function handleNewCommentChange() {
-		setNewCommentText(event.target.value)
+
+		event.target.setCustomValidity('');
+		setNewCommentText(event.target.value);
+	}
+
+	function handleNewCommentInvalid() {
+
+		event.target.setCustomValidity('Esse campo é obrigatório !');
 	}
 
 	function deletComment(commentToDelete) {
@@ -42,6 +50,8 @@ export function Post({ author, publishedAt, content }) {
 
 		setComments(commentsWithoutDeletedOne);
 	}
+
+	const isNewCommentEmpty = newCommentText.length === 0;
 
 	return (
 		<>
@@ -65,7 +75,7 @@ export function Post({ author, publishedAt, content }) {
 						if (line.type === 'paragraph') {
 							return <p key={line.content}>{line.content}</p>;
 						} else if (line.type === 'link') {
-							return <p key={line.content}><a href="">{line.content}</a></p>
+							return <p key={line.content}><a href="#">{line.content}</a></p>
 						}
 					})}
 				</div>
@@ -78,10 +88,14 @@ export function Post({ author, publishedAt, content }) {
 						placeholder='Deixe um comentário'
 						value={newCommentText}
 						onChange={handleNewCommentChange}
+						onInvalid={handleNewCommentInvalid}
+						required={true}
 					/>
 
 					<footer>
-						<button type='submit'>Publicar</button>
+						<button
+							disabled={isNewCommentEmpty}
+							type='submit'>Publicar</button>
 					</footer>
 
 				</form>
